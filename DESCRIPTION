@@ -1,0 +1,30 @@
+Package: ggpictorial
+Title: Makes pictorial charts with ggplot
+Version: 0.0.1
+Authors@R: 
+ c( 
+    person(given = "Juan Pablo",
+           family = "Marin Diaz",
+           role = c("aut", "cre"),
+           email = "jpmarindiaz@gmail.com"),
+    person("Datasketch", role = c("cph", "fnd"))
+    )
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends:
+    R (>= 4.3),
+    dplyr,
+    ggplot2 (>= 3.4.4),
+    terra,
+    sf
+Imports: 
+    ggimage,
+    rsvg,
+    terra
+Remotes:
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
