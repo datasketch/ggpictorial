@@ -8,6 +8,7 @@ The goal of ggpictorial is to create ggplot charts with:
 
 - icons and numbers
 - pictorial unit charts
+- pictorial waffles
 
 
 
