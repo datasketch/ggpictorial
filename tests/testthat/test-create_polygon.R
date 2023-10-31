@@ -16,6 +16,12 @@ test_that("multiplication works", {
   comb <- combine_polygons(triangle, triangle2, square)
   plot(comb)
 
+  translated_comb <- translate_polygon(comb, x_shift = 0.5, y_shift = 0.5)
+  plot(translated_comb, border = "green", add = TRUE)
+
+  recentered_polygon <- recenter_polygon(comb)
+  plot(recentered_polygon, border = "red", add = TRUE)
+
   rotated <- rotate_polygon(comb, pi/4)
   plot(rotated, border = "blue", add = TRUE)
 
