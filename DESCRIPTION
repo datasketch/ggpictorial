@@ -17,7 +17,10 @@ RoxygenNote: 7.2.3
 Depends:
     R (>= 4.3),
     dplyr,
+    tidyr,
+    dstools,
     ggplot2 (>= 3.4.4),
+    vctrs,
     terra,
     sf
 Imports: 

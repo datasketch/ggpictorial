@@ -1,4 +1,6 @@
 
+
+
 #' @export
 create_polygon <- function(n, center = c(0, 0), phi = 0, radius = 1) {
   # Ensure n is at least 3
@@ -32,6 +34,11 @@ create_polygon <- function(n, center = c(0, 0), phi = 0, radius = 1) {
 #' @export
 combine_polygons <- function(...){
   rbind(...)
+}
+
+#' @export
+combine_polygons_list <- function(l){
+  do.call("rbind", list(l))
 }
 
 
