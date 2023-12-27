@@ -1,10 +1,15 @@
 
+#' @export
 pictorial_grid <- function(df,
                            icon_name = "square",
                            fill = NA,
                            color = NA,
-                           palette = c("red", "blue")){
+                           palette = NULL,
+                           title = NULL,
+                           subtitle = NULL,
+                           caption = NULL){
 
+  palette <- palette %||% rainbow(nrow(df))
 
   if(!is.na(fill)){
     df$fill <- fill
@@ -12,6 +17,7 @@ pictorial_grid <- function(df,
   if(!"fill" %in% names(df)){
     df$fill <- map_categories_to_palette(df$categories, palette = palette)
   }
+
 
   if(!is.na(color)){
     df$color <- color
@@ -27,9 +33,9 @@ pictorial_grid <- function(df,
   d <- make_grid(n = value)
   # Fill grid with information for each value
   d$categories <- df |>
-    uncount(values) |>
-    pull(categories)
-  d <- d |> left_join(df, by = "categories")
+    tidyr::uncount(values) |>
+    dplyr::pull(categories)
+  d <- d |> dplyr::left_join(df, by = "categories")
 
   ld <- purrr::transpose(d)
 
@@ -47,7 +53,9 @@ pictorial_grid <- function(df,
 
   ggplot(sfs) + geom_sf(aes(fill = fill, color = color)) +
     scale_fill_identity() +
-    scale_color_identity()
+    scale_color_identity() +
+    theme_void() +
+    labs(title = title, subtitle = subtitle, caption = caption)
 
 
 }
@@ -61,9 +69,11 @@ map_categories_to_palette <- function(categories, palette) {
 }
 
 
-
+#' @export
 pictorial_unit <- function(value, max_value = NULL, icon_name = "square",
-                           color = "red", na_color = "#dadada"){
+                           color = "red", na_color = "#dadada",
+                           palette = NULL, title = NULL, subtitle = NULL,
+                           caption = NULL){
 
   # make the dataframe
 
@@ -79,10 +89,15 @@ pictorial_unit <- function(value, max_value = NULL, icon_name = "square",
     categories = c("value", "empty"),
     values = c(value1, value2)
   )
+  palette <- palette %||% c(color, na_color)
+  palette <- palette[1:nrow(df)]
 
   pictorial_grid(df,
                  icon_name = icon_name,
-                 palette = c(color, na_color))
+                 palette = palette,
+                 title = title,
+                 subtitle = subtitle,
+                 caption = caption)
 
 }
 

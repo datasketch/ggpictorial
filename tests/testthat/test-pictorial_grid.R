@@ -6,11 +6,25 @@ test_that("", {
   )
   pictorial_grid(df, color = "green")
 
+  df <- tibble::tribble(
+    ~categories, ~values, ~icon,
+    "Economic", 10, "male",
+    "Social", 50,"female",
+    "Environmental", 2, "book"
+  )
+  pictorial_grid(df, title = "Hello")
+
+
   value <- 0.31
   pictorial_unit(value, icon_name = "square")
+  pictorial_unit(value, icon_name = "square", palette = c("orange", "yellow"))
+  pictorial_unit(value, icon_name = "square", palette = rainbow(5))
+
+
 
   value <- 0.998
   pictorial_unit(value, icon_name = "square")
+
 
   value <- 0.9
   pictorial_unit(value, icon_name = "circle")

@@ -27,7 +27,7 @@ rotate_polygon <- function(sf_polygons, angle) {
   })
 
   # Return the rotated polygons as an sf object
-  st_sf(geometry = st_sfc(rotated_polygons))
+  st_sf(geometry = sf::st_sfc(rotated_polygons))
 }
 
 

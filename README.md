@@ -28,3 +28,10 @@ library(ggpictorial)
 ## basic example code
 ```
 
+
+
+
+## Notes
+
+https://twitter.com/sharoz/status/1309598341282529281
+

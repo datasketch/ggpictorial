@@ -69,8 +69,8 @@ icon_sf_clip <- function(sf_object, y_value){
   m <- matrix(c(bbox["xmin"], bbox["xmin"], bbox["xmax"], bbox["xmax"], bbox["xmin"],
                 y_value,bbox["ymin"],bbox["ymin"],y_value,y_value), ncol = 2)
   clip_polygon <- st_sfc(st_polygon(list(m)),
-                         crs = st_crs(sf_object))
-  clipped <- st_intersection(sf_object, clip_polygon)
+                         crs = sf::st_crs(sf_object))
+  clipped <- sf::st_intersection(sf_object, clip_polygon)
   clipped
 
 }

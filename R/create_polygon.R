@@ -24,8 +24,8 @@ create_polygon <- function(n, center = c(0, 0), phi = 0, radius = 1) {
 
   # Convert to matrix and then to sf polygon
   coords <- matrix(c(x_coords, y_coords), ncol = 2)
-  poly <- st_polygon(list(coords))
-  sf_poly <- st_sf(geometry = st_sfc(poly))
+  poly <- sf::st_polygon(list(coords))
+  sf_poly <- sf::st_sf(geometry = sf::st_sfc(poly))
 
   sf_poly
 }

@@ -18,7 +18,7 @@ scale_polygon <- function(sf_polygon, scale) {
 
   # Update the geometry of the sf object
 
-  st_sf(geometry = st_sfc(final_geometry))
+  st_sf(geometry = sf::st_sfc(final_geometry))
 
   # st_geometry(sf_polygon) <- final_geometry
   #
