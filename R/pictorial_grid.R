@@ -7,7 +7,9 @@ pictorial_grid <- function(df,
                            palette = NULL,
                            title = NULL,
                            subtitle = NULL,
-                           caption = NULL){
+                           caption = NULL,
+                           nrow = NULL,
+                           ncol = NULL){
 
   palette <- palette %||% rainbow(nrow(df))
 
@@ -30,7 +32,7 @@ pictorial_grid <- function(df,
   if(inherits(df, "data.frame")){
     value <- sum(df$values)
   }
-  d <- make_grid(n = value)
+  d <- make_grid(n = value, nrow = nrow, ncol = ncol)
   # Fill grid with information for each value
   d$categories <- df |>
     tidyr::uncount(values) |>

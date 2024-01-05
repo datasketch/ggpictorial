@@ -25,6 +25,17 @@ test_that("", {
   value <- 0.998
   pictorial_unit(value, icon_name = "square")
 
+  value <- 1/366
+  pictorial_unit(value, icon_name = "square")
+
+
+  df <- tibble::tribble(
+    ~categories, ~values,
+    "day", 1,
+    "rest", 365
+  )
+  pictorial_grid(df, palette = c("#cc9a00", "#ffffff"),
+                color = "#c5c5c5", ncol = 6)
 
   value <- 0.9
   pictorial_unit(value, icon_name = "circle")
