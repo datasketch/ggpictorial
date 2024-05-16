@@ -5,15 +5,22 @@ icon_read_raster <- function(path){
   if(dstools::file_ext(path) == "svg"){
     tmp <- TRUE
     icon_path_tmp <- svg_to_png(path)
-  }else{
+  }else if(dstools::file_ext(path) == "jpeg"){
+    icon_path_tmp <- jpeg_negate(path)
+    tmp <- TRUE
+  }
+    else{
     icon_path_tmp <- path
     tmp <- FALSE
   }
 
   r <- terra::rast(icon_path_tmp)
-
   #plot(r)
-  r2 <- r[[2]]
+  if(dstools::file_ext(path) == "jpeg"){
+    r2 <- r
+  }else{
+    r2 <- r[[2]]
+  }
 
   #plot(r2)
   # Convert to logical raster

@@ -4,6 +4,10 @@ test_that("Pictorial", {
   value <- 0.1
   pictorial_icon(value, icon)
 
+  icon <- "~/Downloads/petro.jpeg"
+  value <- 0.34
+  pictorial_icon(value, icon)
+
 
   icon <- "tmp/noun/noun-house-6194195.svg"
   value <- 0.8

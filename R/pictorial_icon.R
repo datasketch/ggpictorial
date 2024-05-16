@@ -1,8 +1,8 @@
 
 #' @export
-pictorial_icon <- function(value, icon, fill = "gray40",
-                           bg_color = "#eeeeee",
-                           na_color = "#d9d9d9"){
+pictorial_icon <- function(value, icon, fill = "#4c3f4c",
+                           bg_color = "#FAFAFA",
+                           na_color = "#dadac0"){
 
   r <- icon_read_raster(icon)
   psf <- icon_sf_polygon(r)
@@ -13,11 +13,11 @@ pictorial_icon <- function(value, icon, fill = "gray40",
 
 
   gg <- ggplot() +
-    geom_sf(data = psf, fill = na_color) +
+    geom_sf(data = psf, fill = na_color, color = NA) +
     #scale_fill_manual(na.value = "red") +
     theme_void()
 
-  gg + geom_sf(data = psf2, fill = fill) +
+  gg + geom_sf(data = psf2, fill = fill, color = NA) +
     theme_background(bg_color)
 
 

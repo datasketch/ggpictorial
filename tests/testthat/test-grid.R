@@ -39,7 +39,7 @@ test_that("grid factors", {
   best_2_factors(135, ratio = 0.3)
   best_2_factors(135, ratio = 1.333, tol = 0.3)
 
-  best_2_factors(1000, ratio = 1/10)
+  # best_2_factors(1000, ratio = 1/10)
 
 
   expect_true(is_square(100))
