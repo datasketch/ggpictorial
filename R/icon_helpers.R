@@ -5,7 +5,7 @@ icon_read_raster <- function(path){
   if(dstools::file_ext(path) == "svg"){
     tmp <- TRUE
     icon_path_tmp <- svg_to_png(path)
-  }else if(dstools::file_ext(path) == "jpeg"){
+  }else if(dstools::file_ext(path) %in% c("jpeg", "jpg")){
     icon_path_tmp <- jpeg_negate(path)
     tmp <- TRUE
   }
@@ -16,7 +16,7 @@ icon_read_raster <- function(path){
 
   r <- terra::rast(icon_path_tmp)
   #plot(r)
-  if(dstools::file_ext(path) == "jpeg"){
+  if(dstools::file_ext(path) %in% c("jpeg", "jpg")){
     r2 <- r
   }else{
     r2 <- r[[2]]
